@@ -3,6 +3,7 @@ import { detectLocale, messages, t as tr } from '@/lib/locale';
 import type { Project, SiteConfig } from '@/lib/types';
 import Hero from '@/components/Hero';
 import ProjectCard from '@/components/ProjectCard';
+import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import Konami from '@/components/Konami';
 
@@ -53,7 +54,12 @@ export default async function Home() {
         </section>
       )}
 
+      <ContactForm dict={dict} />
+
       <Footer dict={dict} />
+
+      {/* Glow en el fin de la página (abajo del todo) */}
+      <div className="absolute -bottom-24 -left-12 sm:-bottom-40 sm:-left-20 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] rounded-full bg-gradient-to-tr from-blue-500/20 via-cyan-400/5 to-transparent blur-3xl pointer-events-none z-0" />
     </main>
   );
 }

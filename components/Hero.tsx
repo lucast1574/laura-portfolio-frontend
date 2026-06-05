@@ -12,18 +12,30 @@ export default function Hero({ site, dict }: { site: SiteConfig; dict: Dict }) {
       <div className="absolute -bottom-24 -left-12 sm:-bottom-40 sm:-left-20 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] rounded-full bg-gradient-to-tr from-teal-400/25 via-cyan-300/10 to-transparent blur-3xl pointer-events-none" />
 
       <div className="relative max-w-4xl w-full text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full glass text-[10px] sm:text-xs tracking-widest text-pink-200 mb-6 sm:mb-8"
-        >
-          <Database size={12} />
-          <span>{dict.role.toUpperCase()}</span>
-          <div className="data-bars">
-            <span /><span /><span /><span />
-          </div>
-        </motion.div>
+        {site.workingOn ? (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass text-[10px] sm:text-xs tracking-widest text-amber-200 mb-6 sm:mb-8 border border-amber-500/20"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+            {dict.workingOn}: {site.workingOn.title.toUpperCase()}
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full glass text-[10px] sm:text-xs tracking-widest text-pink-200 mb-6 sm:mb-8"
+          >
+            <Database size={12} />
+            <span>{dict.available}</span>
+            <div className="data-bars">
+              <span /><span /><span /><span />
+            </div>
+          </motion.div>
+        )}
 
         <motion.h1
           initial={{ opacity: 0, y: 24 }}

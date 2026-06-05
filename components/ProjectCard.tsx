@@ -22,6 +22,7 @@ export default function ProjectCard({ project, dict, index }: { project: Project
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="relative py-12 sm:py-20 md:py-24 px-5 sm:px-6 safe-x"
     >
+      {/* color flood — más sutil en mobile */}
       <div
         className="absolute inset-0 pointer-events-none opacity-30 sm:opacity-40"
         style={{
@@ -30,6 +31,7 @@ export default function ProjectCard({ project, dict, index }: { project: Project
       />
 
       <div className={`relative max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 items-center ${isEven ? '' : 'md:[direction:rtl]'}`}>
+        {/* Visual */}
         <div className="md:[direction:ltr]">
           <motion.div
             whileHover={{ scale: 1.02, rotateY: isEven ? 3 : -3 }}
@@ -47,7 +49,7 @@ export default function ProjectCard({ project, dict, index }: { project: Project
                 decoding="async"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-5xl sm:text-6xl font-bold font-display" style={{ color }}>
+              <div className="w-full h-full flex items-center justify-center text-5xl sm:text-6xl font-bold" style={{ color }}>
                 {project.i18n.name?.slice(0, 2).toUpperCase() || '✦'}
               </div>
             )}
@@ -60,6 +62,7 @@ export default function ProjectCard({ project, dict, index }: { project: Project
           </motion.div>
         </div>
 
+        {/* Content */}
         <div className="md:[direction:ltr]">
           <div className="flex items-center gap-2 mb-3 flex-wrap">
             <span
@@ -102,6 +105,7 @@ export default function ProjectCard({ project, dict, index }: { project: Project
             </div>
           )}
 
+          {/* Action links */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             {project.links?.web && (
               <a
@@ -115,13 +119,72 @@ export default function ProjectCard({ project, dict, index }: { project: Project
               </a>
             )}
 
+            {project.links?.windows && (
+              <a
+                href={project.links.windows}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg glass hover:bg-white/10 active:bg-white/15 transition text-xs sm:text-sm font-medium"
+              >
+                <svg className="w-4 h-4 fill-current text-sky-400" viewBox="0 0 24 24">
+                  <path d="M0 3.449L9.75 2.1v9.45H0V3.449zM0 12.45h9.75v9.45L0 20.551v-8.1zM11.25 1.9L24 0v11.55H11.25V1.9zM11.25 12.45H24v11.55l-12.75-1.9v-9.65z"/>
+                </svg>
+                <span>Windows</span>
+              </a>
+            )}
+
+            {project.links?.macOS && (
+              <a
+                href={project.links.macOS}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg glass hover:bg-white/10 active:bg-white/15 transition text-xs sm:text-sm font-medium"
+              >
+                <svg className="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24">
+                  <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.029-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.51 12.06 1.005 1.45 2.187 3.068 3.765 3.008 1.522-.06 2.094-.98 3.935-.98 1.829 0 2.355.98 3.948.948 1.62-.029 2.666-1.468 3.655-2.902 1.146-1.675 1.612-3.3 1.642-3.389-.03-.015-3.142-1.2-3.175-4.793-.029-3.005 2.475-4.444 2.5-4.458-1.41-2.07-3.582-2.3-4.348-2.352-1.844-.15-3.616 1.132-4.506 1.132zM15.983 4.154c.783-.951 1.31-2.276 1.162-3.595-1.133.045-2.51.754-3.321 1.705-.694.8-1.3 2.147-1.133 3.438 1.258.098 2.535-.631 3.292-1.548z"/>
+                </svg>
+                <span>macOS</span>
+              </a>
+            )}
+
+            {project.links?.linux && (
+              <a
+                href={project.links.linux}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg glass hover:bg-white/10 active:bg-white/15 transition text-xs sm:text-sm font-medium"
+              >
+                <svg className="w-4 h-4 fill-current text-amber-500" viewBox="0 0 24 24">
+                  <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm-1.67 6.13c-.39-.39-1.02-.39-1.41 0a.996.996 0 000 1.41l2.5 2.5-2.5 2.5a.996.996 0 101.41 1.41l3.21-3.21a.996.996 0 000-1.41l-3.21-3.2zm4.17 6.37h2.5c.55 0 1-.45 1-1s-.45-1-1-1h-2.5c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+                </svg>
+                <span>Linux</span>
+              </a>
+            )}
+
+            {project.links?.msStore && (
+              <a
+                href={project.links.msStore}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg glass hover:bg-white/10 active:bg-white/15 transition text-xs sm:text-sm font-medium"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 23 23">
+                  <path fill="#f35325" d="M0 0h11v11H0z"/>
+                  <path fill="#81bc06" d="M12 0h11v11H12z"/>
+                  <path fill="#05a6f0" d="M0 12h11v11H0z"/>
+                  <path fill="#ffba08" d="M12 12h11v11H12z"/>
+                </svg>
+                <span>MS Store</span>
+              </a>
+            )}
+
             {project.repos?.filter((r) => r.isPublic).map((repo) => (
               <a
                 key={repo.url}
                 href={repo.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg glass hover:bg-pink-500/10 active:bg-pink-500/15 transition text-xs sm:text-sm"
+                className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2 rounded-lg glass hover:bg-white/10 active:bg-white/15 transition text-xs sm:text-sm"
               >
                 <Github size={16} />
                 <span className="font-mono">{repo.label || repo.type}</span>

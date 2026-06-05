@@ -21,7 +21,7 @@ export const PROJECTS_QUERY = `
       id slug order featured color
       i18n { name tagline description longDescription }
       repos { type url label isPublic }
-      links { web playStore appStore }
+      links { web playStore appStore windows macOS linux msStore }
       isMobile tech
       screenshots { url caption }
       thumbnail year visible
@@ -35,6 +35,7 @@ export const SITE_QUERY = `
       profile { name role bio }
       social { github linkedin youtube email }
       avatar
+      workingOn { title name proposalId }
     }
   }
 `;
