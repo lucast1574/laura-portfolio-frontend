@@ -31,8 +31,6 @@ body {
     linear-gradient(rgba(236, 72, 153, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(20, 184, 166, 0.04) 1px, transparent 1px);
   background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
 }
 
 .bg-dots, .bg-dots-2 {
