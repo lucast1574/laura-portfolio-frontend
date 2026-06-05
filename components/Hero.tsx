@@ -7,9 +7,8 @@ import type { Dict } from '@/lib/locale';
 export default function Hero({ site, dict }: { site: SiteConfig; dict: Dict }) {
   return (
     <section className="relative z-10 min-h-[100svh] flex items-center justify-center px-5 sm:px-6 py-16 sm:py-20 overflow-hidden safe-x">
-      {/* Soft glows pink + teal */}
+      {/* Soft glow pink (only top right) — teal glow moved to end of page */}
       <div className="absolute -top-24 -right-24 sm:-top-40 sm:-right-40 w-[320px] h-[320px] sm:w-[600px] sm:h-[600px] rounded-full bg-gradient-to-br from-pink-500/25 via-rose-400/10 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -left-12 sm:-bottom-40 sm:-left-20 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] rounded-full bg-gradient-to-tr from-teal-400/25 via-cyan-300/10 to-transparent blur-3xl pointer-events-none" />
 
       <div className="relative max-w-4xl w-full text-center">
         {site.workingOn ? (
